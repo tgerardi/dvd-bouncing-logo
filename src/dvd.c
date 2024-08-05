@@ -2,16 +2,15 @@
 
 int main(void) {
 
-    InitWindow(GetMonitorWidth(GetCurrentMonitor()), GetMonitorHeight(GetCurrentMonitor()), "DVD Bouncing Logo!");
+    InitWindow(GetScreenWidth(), GetScreenHeight(), "DVD Bouncing Logo!");
 
-    const int screenWidth = GetMonitorWidth(GetCurrentMonitor());
-    const int screenHeight = GetMonitorHeight(GetCurrentMonitor());
+    const int screenWidth = GetScreenWidth();
+    const int screenHeight = GetScreenHeight();
 
-    Texture2D dvdTexture = LoadTexture("static/dvd-logo.png");
+    Image image = LoadImageFromMemory(".png", dvd_logo_png, dvd_logo_png_len);
+    Texture2D dvdTexture = LoadTextureFromImage(image);
     Vector2 dvdPos = { screenWidth/2.0f - dvdTexture.width/2.0f, screenHeight/2.0f - dvdTexture.height/2.0f };
     Vector2 dvdSpeed = { 200.0f, 150.0f };
-
-    ToggleFullscreen();
 
     SetTargetFPS(60);
 
