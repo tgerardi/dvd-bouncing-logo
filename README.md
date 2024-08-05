@@ -3,6 +3,6 @@
 A simple screensaver for Linux
 
 ```bash
-make clean && make all
 make install
+dvd
 ```
